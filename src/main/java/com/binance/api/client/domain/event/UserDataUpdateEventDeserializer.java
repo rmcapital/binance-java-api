@@ -45,9 +45,12 @@ public class UserDataUpdateEventDeserializer extends JsonDeserializer<UserDataUp
     } else if (userDataUpdateEventType == UserDataUpdateEventType.BALANCE_UPDATE) {
       BalanceUpdateEvent balanceUpdateEvent = getUserDataUpdateEventDetail(json, BalanceUpdateEvent.class, mapper);
       userDataUpdateEvent.setBalanceUpdateEvent(balanceUpdateEvent);
-    } else { // userDataUpdateEventType == UserDataUpdateEventType.ORDER_TRADE_UPDATE
+    } else if (userDataUpdateEventType == UserDataUpdateEventType.ORDER_TRADE_UPDATE) {
       OrderTradeUpdateEvent orderTradeUpdateEvent = getUserDataUpdateEventDetail(json, OrderTradeUpdateEvent.class, mapper);
       userDataUpdateEvent.setOrderTradeUpdateEvent(orderTradeUpdateEvent);
+    } else { // userDataUpdateEventType == UserDataUpdateEventType.LIST_UPDATE
+      ListUpdateEvent listUpdateEvent = getUserDataUpdateEventDetail(json, ListUpdateEvent.class, mapper);
+      userDataUpdateEvent.setListUpdateEvent(listUpdateEvent);
     }
 
     return userDataUpdateEvent;

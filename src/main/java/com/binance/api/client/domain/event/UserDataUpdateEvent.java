@@ -30,6 +30,8 @@ public class UserDataUpdateEvent {
 
   private OrderTradeUpdateEvent orderTradeUpdateEvent;
 
+  private ListUpdateEvent listUpdateEvent;
+
   public UserDataUpdateEventType getEventType() {
     return eventType;
   }
@@ -78,6 +80,14 @@ public class UserDataUpdateEvent {
     this.orderTradeUpdateEvent = orderTradeUpdateEvent;
   }
 
+  public ListUpdateEvent getListUpdateEvent() {
+    return listUpdateEvent;
+  }
+
+  public void setListUpdateEvent(ListUpdateEvent listUpdateEvent) {
+    this.listUpdateEvent = listUpdateEvent;
+  }
+
   @Override
   public String toString() {
     ToStringBuilder sb = new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
@@ -100,6 +110,9 @@ public class UserDataUpdateEvent {
     BALANCE_UPDATE("balanceUpdate"),
     /** Corresponds to "executionReport" events. */
     ORDER_TRADE_UPDATE("executionReport"),
+
+    /** Corresponds to "executionReport" events. */
+    LIST_UPDATE("listStatus"),
     ;
 
     private final String eventTypeId;
@@ -119,6 +132,8 @@ public class UserDataUpdateEvent {
         return ACCOUNT_POSITION_UPDATE;
       } else if (BALANCE_UPDATE.eventTypeId.equals(eventTypeId)) {
         return BALANCE_UPDATE;
+      } else if (LIST_UPDATE.eventTypeId.equals(eventTypeId)) {
+        return LIST_UPDATE;
       }
       throw new UnsupportedEventException("Unrecognized user data update event type id: " + eventTypeId);
     }
