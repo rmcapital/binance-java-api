@@ -54,7 +54,7 @@ public class ListUpdateEvent {
    * Reason why the order was rejected.
    */
   @JsonProperty("r")
-  private OrderRejectReason orderRejectReason;
+  private String orderRejectReason;
 
 
   /**
@@ -108,11 +108,11 @@ public class ListUpdateEvent {
     this.listClientOrderId = listClientOrderId;
   }
 
-  public OrderRejectReason getOrderRejectReason() {
+  public String getOrderRejectReason() {
     return orderRejectReason;
   }
 
-  public void setOrderRejectReason(OrderRejectReason orderRejectReason) {
+  public void setOrderRejectReason(String orderRejectReason) {
     this.orderRejectReason = orderRejectReason;
   }
 
