@@ -28,6 +28,9 @@ public class OrderTradeUpdateEvent {
   @JsonProperty("c")
   private String newClientOrderId;
 
+  @JsonProperty("C")
+  private String origClientOrderId;
+
   /**
    * Buy/Sell order side.
    */
@@ -178,6 +181,14 @@ public class OrderTradeUpdateEvent {
 
   public void setNewClientOrderId(String newClientOrderId) {
     this.newClientOrderId = newClientOrderId;
+  }
+
+  public String getOrigClientOrderId() {
+    return origClientOrderId;
+  }
+
+  public void setOrigClientOrderId(String newClientOrderId) {
+    this.origClientOrderId = newClientOrderId;
   }
 
   public OrderSide getSide() {
