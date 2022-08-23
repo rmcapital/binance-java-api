@@ -180,20 +180,20 @@ public interface BinanceApiService {
     // User stream endpoints
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
-    @POST("/api/v1/userDataStream")
+    @POST("/api/v3/userDataStream")
     Call<ListenKey> startUserDataStream();
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
-    @PUT("/api/v1/userDataStream")
+    @PUT("/api/v3/userDataStream")
     Call<Void> keepAliveUserDataStream(@Query("listenKey") String listenKey);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
-    @DELETE("/api/v1/userDataStream")
+    @DELETE("/api/v3/userDataStream")
     Call<Void> closeAliveUserDataStream(@Query("listenKey") String listenKey);
 
     // Margin Account endpoints
     @Headers({BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER, BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER})
-    @POST("/sapi/v1/margin/transfer")
+    @POST("/sapi/v3/margin/transfer")
     Call<MarginTransaction> transfer(@Query("asset") String asset, @Query("amount") String amount, @Query("type") String type, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers({BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER, BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER})
