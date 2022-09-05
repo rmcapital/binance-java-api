@@ -139,15 +139,33 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   @Override
   public void newOrder(NewOrder order, BinanceApiCallback<NewOrderResponse> callback) {
     if (order.getQuoteOrderQty() == null) {
-      binanceApiService.newOrder(order.getSymbol(), order.getSide(), order.getType(),
-          order.getTimeInForce(), order.getQuantity(), order.getPrice(),
-          order.getNewClientOrderId(), order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(),
-          order.getRecvWindow(), order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
+      binanceApiService.newOrder(order.getSymbol(),
+          order.getSide(),
+          order.getType(),
+          order.getTimeInForce(),
+          order.getQuantity(),
+          order.getPrice(),
+          order.getNewClientOrderId(),
+          order.getStopPrice(),
+          order.getIcebergQty(),
+          order.getNewOrderRespType(),
+
+          order.getRecvWindow(),
+          order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
     } else {
-      binanceApiService.newOrderQuoteQty(order.getSymbol(), order.getSide(), order.getType(),
-          order.getTimeInForce(), order.getQuoteOrderQty(), order.getPrice(),
-          order.getNewClientOrderId(), order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(),
-          order.getRecvWindow(), order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
+      binanceApiService.newOrderQuoteQty(order.getSymbol(),
+          order.getSide(),
+          order.getType(),
+          order.getTimeInForce(),
+          order.getQuoteOrderQty(),
+          order.getPrice(),
+          order.getNewClientOrderId(),
+          order.getStopPrice(),
+          order.getIcebergQty(),
+          order.getNewOrderRespType(),
+          order.getTrailingDelta(),
+          order.getRecvWindow(),
+          order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
     }
   }
 
@@ -155,7 +173,8 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   public void newOrderTest(NewOrder order, BinanceApiCallback<Void> callback) {
     binanceApiService.newOrderTest(order.getSymbol(), order.getSide(), order.getType(),
         order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(), order.getStopPrice(),
-        order.getIcebergQty(), order.getNewOrderRespType(), order.getRecvWindow(), order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
+        order.getIcebergQty(), order.getNewOrderRespType(), order.getTrailingDelta(),
+        order.getRecvWindow(), order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
   // Account endpoints

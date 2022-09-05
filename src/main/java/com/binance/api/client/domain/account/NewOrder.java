@@ -84,6 +84,11 @@ public class NewOrder {
   private long timestamp;
 
   /**
+   * Order trailing delta
+   */
+  private Long trailingDelta;
+
+  /**
    * Creates a new order with all required parameters.
    */
   public NewOrder(String symbol, OrderSide side, OrderType type, TimeInForce timeInForce, String quantity) {
@@ -282,8 +287,17 @@ public class NewOrder {
             .append("stopLimitPrice", stopLimitPrice)
             .append("icebergQty", icebergQty)
             .append("newOrderRespType", newOrderRespType)
+            .append("trailingDelta", trailingDelta)
             .append("recvWindow", recvWindow)
             .append("timestamp", timestamp)
             .toString();
+  }
+
+  public Long getTrailingDelta() {
+    return trailingDelta;
+  }
+
+  public void setTrailingDelta(Long trailingDelta) {
+    this.trailingDelta = trailingDelta;
   }
 }
