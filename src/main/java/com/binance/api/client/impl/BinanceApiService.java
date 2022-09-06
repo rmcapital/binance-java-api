@@ -80,6 +80,7 @@ public interface BinanceApiService {
                                     @Query("timeInForce") TimeInForce timeInForce, @Query("quantity") String quantity, @Query("price") String price,
                                     @Query("newClientOrderId") String newClientOrderId, @Query("stopPrice") String stopPrice,
                                     @Query("icebergQty") String icebergQty, @Query("newOrderRespType") NewOrderResponseType newOrderRespType,
+                                    @Query("trailingDelta") Long trailingDelta,
                                     @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
