@@ -83,6 +83,7 @@ public interface BinanceApiService {
                                     @Query("trailingDelta") Long trailingDelta,
                                     @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
+
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @POST("/api/v3/order")
     Call<NewOrderResponse> newOrderQuoteQty(@Query("symbol") String symbol, @Query("side") OrderSide side, @Query("type") OrderType type,
