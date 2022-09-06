@@ -149,7 +149,7 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
           order.getStopPrice(),
           order.getIcebergQty(),
           order.getNewOrderRespType(),
-
+          order.getTrailingDelta(),
           order.getRecvWindow(),
           order.getTimestamp()).enqueue(new BinanceApiCallbackAdapter<>(callback));
     } else {

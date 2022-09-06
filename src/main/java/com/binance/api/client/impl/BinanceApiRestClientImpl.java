@@ -125,7 +125,8 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
     if (order.getQuoteOrderQty() == null) {
       call = binanceApiService.newOrder(order.getSymbol(), order.getSide(), order.getType(),
           order.getTimeInForce(), order.getQuantity(), order.getPrice(), order.getNewClientOrderId(),
-          order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(), order.getRecvWindow(),
+          order.getStopPrice(), order.getIcebergQty(), order.getNewOrderRespType(),
+          order.getTrailingDelta(), order.getRecvWindow(),
           order.getTimestamp());
     } else {
       call = binanceApiService.newOrderQuoteQty(order.getSymbol(), order.getSide(), order.getType(),
