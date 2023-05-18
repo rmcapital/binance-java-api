@@ -14,6 +14,8 @@ public class RateLimit {
 
   private RateLimitInterval interval;
 
+  private Integer intervalNum;
+
   private Integer limit;
 
   public RateLimitType getRateLimitType() {
@@ -40,11 +42,20 @@ public class RateLimit {
     this.limit = limit;
   }
 
+  public Integer getIntervalNum() {
+    return intervalNum;
+  }
+
+  public void setIntervalNum(Integer intervalNum) {
+    this.intervalNum = intervalNum;
+  }
+
   @Override
   public String toString() {
     return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
         .append("rateLimitType", rateLimitType)
         .append("interval", interval)
+        .append("intervalNum", intervalNum)
         .append("limit", limit)
         .toString();
   }
